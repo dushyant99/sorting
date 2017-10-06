@@ -1,0 +1,37 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package sorting;
+import javax.swing.*;
+/**
+ *
+ * @author ops.mummidcmp01
+ */
+public class selection_sort {
+    public static void main(String[] args) {
+        array_in_java.array_creater();
+        array_in_java.print();
+        selection(array_in_java.a);
+        array_in_java.print();
+        
+    }
+    
+    static void selection(int [] a)
+    {
+        int steps,i,temp;
+        
+        for(steps=0;steps<5;steps++)
+            for(i=steps+1;i<5;i++)
+            if(a[steps]>a[i])
+                {
+                    temp=a[steps];
+                    a[steps]=a[i];
+                    a[i]=temp;
+                    
+                }
+            
+    }
+    
+}
