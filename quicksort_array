@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+void swap(int* a, int i,int j)
+{
+    int temp;
+    
+    temp = a[i];
+    a[i]= a[j];
+    a[j]= temp;
+    
+}
+
+
+int partition(int *a, int start, int end)
+{
+    int i;
+    int pivot = a[end];
+    int pindex = start;
+    
+    for (i = start; i < end; i++)
+    {
+        if(a[i]<=pivot)
+        {
+            swap(a,i,pindex);
+            pindex++;
+        }
+    }
+        swap(a,pindex,end);
+        return pindex;
+    
+}
+
+
+void quicksort(int * a, int start, int end)
+{
+    if (start < end)
+    {
+        int pindex = partition(a,start,end);
+        
+        quicksort(a,start,pindex-1);
+        quicksort(a,pindex+1,end);
+    }
+}
+
+
+
+
+int main(int argc, char** argv) {
+    int i;
+    int a []= {2,7,1,6,8,3,4,5};
+    quicksort(a,0,7);
+    printf("the sorted array is as follows:\n");
+    for(i=0;i<8;i++)
+        printf(" %d ",a[i]);
+    
+   
+    return (EXIT_SUCCESS);
+}
+
+
